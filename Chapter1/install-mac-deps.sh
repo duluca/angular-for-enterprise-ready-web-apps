@@ -1,4 +1,7 @@
 #!/bin/bash
+
+# In order to be able to execute this script, run 'chmod a+x install-mac-deps.sh' to make the file executable
+
 echo "Execute Installation Script"
 read -r -p "Absolutely NO WARRANTIES or GUARANTEES are provided. Are you sure you want to continue? [y/N] " response
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]
@@ -31,7 +34,7 @@ then
     echo "npm: $npmVersion"
 
     echo "Installing VS Code"
-    brew cask install visual-studio-code 
+    brew cask install visual-studio-code
     echo "Verify installation of VS Code manually."
 
     echo "Installing STS"

@@ -1,3 +1,5 @@
+# Run this script in an elevated command shell, using 'Run as Administator'
+
 $title = "Execute Installation Script"
 $message = "Absolutely NO WARRANTIES or GUARANTEES are provided. Are you sure you want to continue?"
 
@@ -9,7 +11,7 @@ $no = New-Object System.Management.Automation.Host.ChoiceDescription "&No", `
 
 $options = [System.Management.Automation.Host.ChoiceDescription[]]($yes, $no)
 
-$result = $host.ui.PromptForChoice($title, $message, $options, 1) 
+$result = $host.ui.PromptForChoice($title, $message, $options, 1)
 
 switch ($result)
     {
@@ -30,15 +32,15 @@ switch ($result)
             Write-Output "Installing JDK8"
             choco install jdk8 -y
             $jdkVersion = java -version
-            Write-Output "JDK: $jdkVersion" 
+            Write-Output "JDK: $jdkVersion"
 
             Write-Output "Installing NodeJS"
             choco install nodejs -y
             $nodeVersion = node -v
-            Write-Output "Node: $nodeVersion" 
-            Write-Output "Remember to avoid odd numbered major Node releases. Keep 8.x.x, avoid 7.x.x." 
+            Write-Output "Node: $nodeVersion"
+            Write-Output "Remember to avoid odd numbered major Node releases. Keep 8.x.x, avoid 7.x.x."
             $npmVersion = npm -v
-            Write-Output "npm: $npmVersion" 
+            Write-Output "npm: $npmVersion"
 
             Write-Output "Installing VS Code"
             choco install VisualStudioCode -y
@@ -50,4 +52,3 @@ switch ($result)
         }
     1 {"Aborted."}
 }
-    

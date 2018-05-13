@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+}
+
+.content-margin {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.vertical-margin {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}

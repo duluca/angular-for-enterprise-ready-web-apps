@@ -19,10 +19,24 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
+              "src/assets",
               "src/favicon.ico",
-              "src/assets"
-            ],
+              "src/android-chrome-192x192.png",
+              "src/favicon-16x16.png",
+              "src/mstile-310x150.png",
+              "src/android-chrome-512x512.png",
+              "src/favicon-32x32.png",
+              "src/mstile-310x310.png",
+              "src/apple-touch-icon.png",
+              "src/manifest.json",
+              "src/mstile-70x70.png",
+              "src/browserconfig.xml",
+              "src/mstile-144x144.png",
+              "src/safari-pinned-tab.svg",
+              "src/mstile-150x150.png"
+              ],
             "styles": [
+              "src/lemonmart-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -72,6 +86,9 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
+              {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css"
+              },
               "src/styles.css"
             ],
             "scripts": [],

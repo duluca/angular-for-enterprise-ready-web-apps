@@ -1,5 +1,7 @@
 FROM node:10.1 as builder
 
+npm i -g npm
+
 # project variables
 ENV SRC_DIR /usr/src
 ENV GIT_REPO https://github.com/duluca/lemon-mart.git

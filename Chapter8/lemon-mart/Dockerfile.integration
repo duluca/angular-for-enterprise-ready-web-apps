@@ -1,6 +1,6 @@
 FROM node:10.1 as builder
 
-npm i -g npm
+RUN npm i -g npm
 
 # project variables
 ENV SRC_DIR /usr/src

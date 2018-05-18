@@ -1,4 +1,3 @@
-# FROM node:10.1 as builder
 FROM duluca/minimal-node-build-env:8.9.4 as builder
 
 # project variables
@@ -15,7 +14,6 @@ RUN git clone $GIT_REPO .
 # COPY $SRC_CODE_LOCATION .
 
 RUN npm install
-# RUN npm ci
 RUN npm run $BUILD_SCRIPT
 
 FROM slapers/alpine-node-chromium as tester

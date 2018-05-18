@@ -10,6 +10,14 @@ import { catchError, map } from 'rxjs/operators'
 import { environment } from '../../environments/environment'
 import { transformError } from '../common/common'
 import { Role } from './role.enum'
+import { CacheService } from './cache.service'
+
+export interface IAuthService {
+  authStatus: BehaviorSubject<IAuthStatus>
+  login(email: string, password: string): Observable<IAuthStatus>
+  logout()
+  getToken(): string
+}
 
 export interface IAuthStatus {
   isAuthenticated: boolean
@@ -21,20 +29,23 @@ interface IServerAuthResponse {
   accessToken: string
 }
 
-const defaultAuthStatus = { isAuthenticated: false, userRole: Role.None, userId: null }
+export const defaultAuthStatus = { isAuthenticated: false, userRole: Role.None, userId: null }
 
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class AuthService extends CacheService implements IAuthService {
+  authStatus = new BehaviorSubject<IAuthStatus>(
+    this.getItem('authStatus') || defaultAuthStatus
+  )
   private readonly authProvider: (
     email: string,
     password: string
   ) => Observable<IServerAuthResponse>
 
-  authStatus = new BehaviorSubject<IAuthStatus>(defaultAuthStatus)
-
   constructor(private httpClient: HttpClient) {
+    super()
+    this.authStatus.subscribe(authStatus => this.setItem('authStatus', authStatus))
     // Fake login function to simulate roles
     this.authProvider = this.fakeAuthProvider
     // Example of a real login call to server-side
@@ -76,6 +87,7 @@ export class AuthService {
 
     const loginResponse = this.authProvider(email, password).pipe(
       map(value => {
+        this.setToken(value.accessToken)
         return decode(value.accessToken) as IAuthStatus
       }),
       catchError(transformError)
@@ -95,6 +107,23 @@ export class AuthService {
   }
 
   logout() {
+    this.clearToken()
     this.authStatus.next(defaultAuthStatus)
+  }
+
+  private setToken(jwt: string) {
+    this.setItem('jwt', jwt)
+  }
+
+  private getDecodedToken(): IAuthStatus {
+    return decode(this.getItem('jwt'))
+  }
+
+  getToken(): string {
+    return this.getItem('jwt') || ''
+  }
+
+  private clearToken() {
+    this.removeItem('jwt')
   }
 }

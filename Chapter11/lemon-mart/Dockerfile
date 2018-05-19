@@ -1,3 +1,3 @@
-FROM duluca/minimal-node-web-server:8.11.1
-WORKDIR /usr/src/app
-COPY dist public
+FROM duluca/minimal-nginx-web-server:1.13.8-alpine
+COPY dist /var/www
+CMD 'nginx'

@@ -25,8 +25,8 @@ import { SharedComponentsModule } from './shared-components.module'
     HomeComponent,
     PageNotFoundComponent,
     LoginComponent,
-    NavigationMenuComponent,
     SimpleDialogComponent,
+    NavigationMenuComponent,
   ],
   imports: [
     BrowserModule,

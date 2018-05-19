@@ -29,7 +29,11 @@ interface IServerAuthResponse {
   accessToken: string
 }
 
-export const defaultAuthStatus = { isAuthenticated: false, userRole: Role.None, userId: null }
+export const defaultAuthStatus = {
+  isAuthenticated: false,
+  userRole: Role.None,
+  userId: null,
+}
 
 @Injectable({
   providedIn: 'root',

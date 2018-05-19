@@ -3,15 +3,21 @@ import { MediaChange } from '@angular/flex-layout'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SafeResourceUrl, SafeValue } from '@angular/platform-browser'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
-// tslint:disable-next-line:max-line-length
-import { SecurityContext } from '@angular/platform-browser/src/security/dom_sanitization_service'
+import {
+  SecurityContext,
+} from '@angular/platform-browser/src/security/dom_sanitization_service'
 import { RouterTestingModule } from '@angular/router/testing'
-import { Observable, Subscription, of } from 'rxjs'
-import { MaterialModule } from '../material.module'
-import { UiService } from './ui.service';
-import { AuthService } from '../auth/auth.service';
-import { AuthServiceFake } from '../auth/auth.service.fake';
+import { Observable, of, Subscription } from 'rxjs'
 
+import { AppMaterialModule } from '../app-material.module'
+import { AuthService } from '../auth/auth.service'
+import { AuthServiceFake } from '../auth/auth.service.fake'
+import { SharedComponentsModule } from '../shared-components.module'
+import { UserService } from '../user/user/user.service'
+import { UserServiceFake } from '../user/user/user.service.fake'
+import { UiService } from './ui.service'
+
+// tslint:disable-next-line:max-line-length
 const FAKE_SVGS = {
   lemon: '<svg><path id="lemon" name="lemon"></path></svg>',
 }
@@ -69,14 +75,16 @@ export class DomSanitizerFake {
 
 export const commonTestingProviders: any[] = [
   { provide: AuthService, useClass: AuthServiceFake },
+  { provide: UserService, useClass: UserServiceFake },
   UiService,
 ]
 
 export const commonTestingModules: any[] = [
   FormsModule,
   ReactiveFormsModule,
-  MaterialModule,
+  AppMaterialModule,
   NoopAnimationsModule,
   HttpClientTestingModule,
   RouterTestingModule,
+  SharedComponentsModule,
 ]

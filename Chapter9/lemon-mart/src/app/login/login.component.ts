@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms'
 import { AuthService } from '../auth/auth.service'
 import { Router, ActivatedRoute, ParamMap } from '@angular/router'
 import { Role } from '../auth/role.enum'
-import { EmailValidation, PasswordValidation } from '../common/common.validations'
+import { EmailValidation, PasswordValidation } from '../common/validations'
 import { UiService } from '../common/ui.service'
 
 @Component({

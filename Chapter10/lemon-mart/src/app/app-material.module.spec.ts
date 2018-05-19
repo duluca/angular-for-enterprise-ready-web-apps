@@ -1,10 +1,10 @@
-import { MaterialModule } from './material.module'
+import { AppMaterialModule } from './app-material.module'
 
 describe('MaterialModule', () => {
-  let materialModule: MaterialModule
+  let materialModule: AppMaterialModule
 
   beforeEach(() => {
-    materialModule = new MaterialModule()
+    materialModule = new AppMaterialModule()
   })
 
   it('should create an instance', () => {

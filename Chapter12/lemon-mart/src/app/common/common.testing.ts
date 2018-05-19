@@ -3,9 +3,7 @@ import { MediaChange } from '@angular/flex-layout'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SafeResourceUrl, SafeValue } from '@angular/platform-browser'
 import { NoopAnimationsModule } from '@angular/platform-browser/animations'
-import {
-  SecurityContext,
-} from '@angular/platform-browser/src/security/dom_sanitization_service'
+import { SecurityContext } from '@angular/platform-browser/src/security/dom_sanitization_service'
 import { RouterTestingModule } from '@angular/router/testing'
 import { Observable, of, Subscription } from 'rxjs'
 

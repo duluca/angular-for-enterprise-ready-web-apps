@@ -8,10 +8,7 @@ import { UserService } from './user.service'
 describe('UserService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [
-        UserService,
-        { provide: AuthService, useClass: AuthServiceFake }
-      ],
+      providers: [UserService, { provide: AuthService, useClass: AuthServiceFake }],
       imports: [HttpClientTestingModule],
     })
   })

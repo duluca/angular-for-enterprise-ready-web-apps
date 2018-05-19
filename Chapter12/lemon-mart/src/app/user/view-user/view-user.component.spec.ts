@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms'
 import { RouterTestingModule } from '@angular/router/testing'
 
 import { ViewUserComponent } from './view-user.component'
-import { AppMaterialModule } from '../../app-material.module';
+import { AppMaterialModule } from '../../app-material.module'
 
 describe('ViewUserComponent', () => {
   let component: ViewUserComponent

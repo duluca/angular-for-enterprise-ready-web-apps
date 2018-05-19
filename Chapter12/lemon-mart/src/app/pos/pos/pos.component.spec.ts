@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing'
 
 import { PosComponent } from './pos.component'
+import { commonTestingModules } from '../../common/common.testing'
 
 describe('PosComponent', () => {
   let component: PosComponent
@@ -8,6 +9,7 @@ describe('PosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: commonTestingModules,
       declarations: [PosComponent],
     }).compileComponents()
   }))

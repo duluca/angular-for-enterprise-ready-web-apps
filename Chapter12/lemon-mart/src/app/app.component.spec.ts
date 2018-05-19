@@ -11,7 +11,7 @@ import {
 import { ObservableMedia } from '@angular/flex-layout'
 import { MatIconRegistry } from '@angular/material'
 import { DomSanitizer } from '@angular/platform-browser'
-import { NavigationMenuComponent } from './user/navigation-menu/navigation-menu.component'
+import { NavigationMenuComponent } from './navigation-menu/navigation-menu.component'
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
